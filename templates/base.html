@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +10,8 @@
 </head>
 
 <body>
-<div id="box">
+<div id=" box
+    ">
 
     <!-- Navigation Bar -->
     <header>
@@ -21,15 +21,17 @@
             <ul></ul>
             <ul>
                 <!--Only for user with created profile-->
-                <li><a href="{% url 'add album' %}">Create Album</a></li>
-                <li><a href="{% url 'details profile' %}">Profile</a></li>
+                {% if not hide_attrs %}
+                    <li><a href="{% url 'add album' %}">Create Album</a></li>
+                    <li><a href="{% url 'details profile' %}">Profile</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
     <!-- End Navigation Bar -->
 
     <!-- Main Content -->
-    {% block page_content %}
+    {% block main_content %}
     {% endblock %}
 
     <!-- Footer -->
@@ -43,4 +45,3 @@
 </div>
 </body>
 </html>
-
